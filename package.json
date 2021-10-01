@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/index.ts",
     "build": "tsc",
-    "start": "node --experimental-specifier-resolution=node src/index.js",
+    "start": "node dist/index",
     "lint:base": "eslint --ext .js,.json,.ts",
     "lint": "yarn lint:base 'src/**' --fix"
   },
