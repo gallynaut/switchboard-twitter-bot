@@ -3,7 +3,9 @@ import Intl from "intl";
 const currencyFormatter0 = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
-const currencyFormatter2 = new Intl.NumberFormat("en-US", {});
+const currencyFormatter2 = new Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 2,
+});
 const currencyFormatter3 = new Intl.NumberFormat("en-US", {
   maximumFractionDigits: 3,
 });

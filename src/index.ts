@@ -44,10 +44,10 @@ async function main(): Promise<void> {
       return;
     }
 
-    const tweetQuery = tweet.text.replace(
-      `@${process.env.TWITTER_USERNAME} `,
-      ""
-    );
+    const tweetQuery = tweet.text
+      .replace(`@${process.env.TWITTER_USERNAME} `, "")
+      .replace(/(?<!w)@([^s]+)/, "")
+      .trim();
     console.log("Keyword:", tweetQuery);
 
     // // use fuse.js to fuzzy match on the tweet text

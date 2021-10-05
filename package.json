@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/index",
     "lint:base": "eslint --ext .js,.json,.ts",
-    "lint": "yarn lint:base 'src/**' --fix"
+    "lint": "yarn lint:base 'src/**' --fix",
+    "push": "yarn build && heroku push origin"
   },
   "dependencies": {
     "@gallynaut/switchboard-feed-registry": "0.1.*",
