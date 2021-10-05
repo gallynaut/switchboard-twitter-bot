@@ -46,7 +46,7 @@ async function main(): Promise<void> {
 
     const tweetQuery = tweet.text
       .replace(`@${process.env.TWITTER_USERNAME} `, "")
-      .replace(/(?<!w)@([^s]+)/, "")
+      .replaceAll(/(?<!w)@([^s]+)/, "")
       .trim();
     console.log("Keyword:", tweetQuery);
 
