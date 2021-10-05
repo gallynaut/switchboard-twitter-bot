@@ -14,6 +14,17 @@ import { cardTimestamp, formatCurrency, tweetTimestamp } from "./utils";
 
 dotenv.config();
 
+function parseKeyword(tweetText: string) {
+  const usernameRegex = new RegExp(/@(?:[a-zA-Z0-9][a-zA-Z0-9._]*)?/, "g");
+  const keyword = tweetText
+    .replace(usernameRegex, "") // remove all usernames
+    .trim() // trim preceding/trailing whitespace
+    .split(" ") // remove all extra whitespace between words
+    .filter((s) => s)
+    .join(" ");
+  return keyword;
+}
+
 async function main(): Promise<void> {
   const connection = new Connection("https://api.mainnet-beta.solana.com"); //https://solana-api.projectserum.com
   const dataFeeds: FeedInfo[] = (await new FeedListProvider().resolve())
@@ -44,10 +55,7 @@ async function main(): Promise<void> {
       return;
     }
 
-    const tweetQuery = tweet.text
-      .replace(`@${process.env.TWITTER_USERNAME} `, "")
-      .replaceAll(/(?<!w)@([^s]+)/g, "")
-      .trim();
+    const tweetQuery = parseKeyword(tweet.text);
     console.log("Keyword:", tweetQuery);
 
     // // use fuse.js to fuzzy match on the tweet text
