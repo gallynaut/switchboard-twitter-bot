@@ -1,8 +1,8 @@
-import { Connection, PublicKey } from "@solana/web3.js";
 import {
   FeedInfo,
   FeedListProvider,
 } from "@gallynaut/switchboard-feed-registry";
+import { Connection, PublicKey } from "@solana/web3.js";
 import { parseAggregatorAccountData } from "@switchboard-xyz/switchboard-api";
 import dotenv from "dotenv";
 import Fuse from "fuse.js";
@@ -14,7 +14,7 @@ import { cardTimestamp, formatCurrency, tweetTimestamp } from "./utils";
 
 dotenv.config();
 
-function parseKeyword(tweetText: string) {
+function parseKeyword(tweetText: string): string {
   const usernameRegex = new RegExp(/@(?:[a-zA-Z0-9][a-zA-Z0-9._]*)?/, "g");
   const keyword = tweetText
     .replace(usernameRegex, "") // remove all usernames
