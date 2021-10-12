@@ -1,5 +1,5 @@
 {
-  "name": "@switchboard-examples/twitter-bot",
+  "name": "switchboard-twitter-bot",
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
